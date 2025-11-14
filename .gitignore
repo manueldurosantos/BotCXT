@@ -1,0 +1,31 @@
+# Entornos virtuais
+.venv/
+venv/
+ENV/
+env/
+
+# Configuración de IDEs
+.idea/
+*.iml
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Archivos de log
+*.log
+
+# Archivos temporales
+*.swp
+*.swo
+*.DS_Store
+
+# Executábeis de PyInstaller
+dist/
+build/
+*.spec
+
+# Outros arquivos de sistema
+Thumbs.db
