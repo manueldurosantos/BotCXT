@@ -600,7 +600,7 @@
    'C:\\Users\\Manu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\runpy.py',
    'PYMODULE'),
   ('scraper',
-   'C:\\Users\\Manu\\PycharmProjects\\BotCXT\\scraper.py',
+   'C:\\Users\\Manu\\PycharmProjects\\BotCXT\\src\\scraper.py',
    'PYMODULE'),
   ('secrets',
    'C:\\Users\\Manu\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\secrets.py',

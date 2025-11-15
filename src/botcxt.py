@@ -25,17 +25,18 @@ def abrir():
         driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
         driver.get("https://www.edu.xunta.gal/cxt")
 
-def ejecutar():
+def executar():
     global driver
     try:
         centros = open(txt_archivo.get()).read().split()
-        enteVernaculo = combo_ente.get()
+        ente = combo_ente.get()
         vernaculo = combo_vernaculo.get()
         especialidade = combo_espec.get()
         linguas = [lingua.strip() for lingua in entry_linguas.get().split(";")]
         itinerancias = [itinerancia.strip() for itinerancia in entry_itinerancia.get().split(",")]
+        limite = int(entry_limite.get())
 
-        lanzar(driver, centros, especialidade, enteVernaculo, vernaculo, linguas, itinerancias)
+        lanzar(driver, centros, especialidade, ente, vernaculo, linguas, itinerancias, limite)
         messagebox.showinfo("Proceso finalizado", "Completado con éxito")
     except Exception as e:
         messagebox.showerror("Erro", f"Houbo un erro no proceso: \n{e}")
@@ -43,8 +44,8 @@ def ejecutar():
 
 if __name__ == "__main__":
     root = tk.Tk()
-    root.title("Bot CXT")
-    root.geometry("450x380")
+    root.title("BotCXT")
+    root.geometry("450x400")
 
     txt_archivo = tk.StringVar()
 
@@ -74,6 +75,10 @@ if __name__ == "__main__":
     tk.Label(root, text="Itinerancia (separadas por coma):").pack()
     tk.Entry(root, textvariable=entry_itinerancia, width=50).pack()
 
-    tk.Button(root, text="Iniciar proceso", command=ejecutar).pack(pady=5)
+    entry_limite = tk.StringVar(value="0")
+    tk.Label(root, text="N destinos con opcións completas (0 = todos):").pack()
+    tk.Entry(root, textvariable=entry_limite, width=50).pack()
+
+    tk.Button(root, text="Iniciar proceso", command=executar).pack(pady=5)
 
     root.mainloop()
