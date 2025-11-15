@@ -33,7 +33,7 @@ def executar():
         vernaculo = combo_vernaculo.get()
         especialidade = combo_espec.get()
         linguas = [lingua.strip() for lingua in entry_linguas.get().split(";")]
-        itinerancias = [itinerancia.strip() for itinerancia in entry_itinerancia.get().split(",")]
+        itinerancias = [itinerancia.strip() for itinerancia in entry_itinerancia.get().split(";")]
         limite = int(entry_limite.get())
 
         lanzar(driver, centros, especialidade, ente, vernaculo, linguas, itinerancias, limite)
@@ -72,7 +72,7 @@ if __name__ == "__main__":
     tk.Entry(root, textvariable=entry_linguas, width=50).pack()
 
     entry_itinerancia = tk.StringVar(value="0-Non")
-    tk.Label(root, text="Itinerancia (separadas por coma):").pack()
+    tk.Label(root, text="Itinerancia (separadas por punto e coma):").pack()
     tk.Entry(root, textvariable=entry_itinerancia, width=50).pack()
 
     entry_limite = tk.StringVar(value="0")

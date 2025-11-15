@@ -3,12 +3,15 @@ Bot desenvolvido en Python para automatizar o envío de solicitudes na páxina d
 
 ![Interface do Bot CXT](img.png)
 
+Pódese ver un titorial de uso no enlace https://youtu.be/pKWsqMe5GYo
+
 ---
 
 ## ☕ Apoia o proxecto
 Se queres agradecer o traballo, podes convidarme a un café:
 
 https://buymeacoffee.com/manuelduro
+
 
 ## Contidos
 
@@ -24,12 +27,15 @@ https://buymeacoffee.com/manuelduro
 ---
 
 ## Requisitos
-
+Para simplemente lanzar o executable dist/botcxt.exe (usar o programa como tal) necesitamos:
 - Navegador Mozilla Firefox
+- O ficheiro co listado dos centros ordenados por tempo/distancia. Pódese obter en https://centroseducativos.gal/ (hai un tutorial dispoñible na propia web)
+
+Se ademais queremos executar o código fonte ou desplegar o código necesitamos tamén:
 - Python 3.12 (recomendado)  
 - Pip
-- Librerías de Python especificadas no requirements.txt.
-- O ficheiro co listado dos centros ordenados por tempo/distancia. Pódese obter en https://centroseducativos.gal/ (hai un tutorial dispoñible na propia web). 
+- Librerías de Python especificadas no requirements.txt
+ 
 
 ## Instalación
 Instalar o navegador Mozilla Firefox https://www.mozilla.org/es-ES/firefox/new/
@@ -109,7 +115,7 @@ scraper.py
 - Contén a función lanzar que automatiza a interacción coa páxina web.
 - Para cada centro, itinerancia e lingua, selecciona os valores correspondentes nos formularios e realiza o envío.
 
-Selenium + Firefox:
+Selenium + Firefox
 - O bot usa webdriver.Firefox() para abrir e controlar o navegador.
 
 ## Creación do executable
@@ -124,4 +130,4 @@ Neste repositorio facilítase a última versión do executable lista para lanzar
 - Asegurarse de que Mozilla Firefox está actualizado.
 - Revisar que os nomes nos formularios da web coincidan coas seleccións do código (select_by_visible_text).
 - Para cambiar os valores por defecto no GUI, modificar manualmente os distintos parámetros.
-- O bot foi deseñado para uso persoal e responsable; polo que se insta a non facer spam de solicitudes á páxina da Xunta.
+- O bot foi deseñado para uso persoal e responsable, polo que se insta a non facer spam de solicitudes á páxina da Xunta.
