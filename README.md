@@ -5,6 +5,11 @@ Bot desenvolvido en Python para automatizar o envío de solicitudes na páxina d
 
 ---
 
+## ☕ Apoia o proxecto
+Se queres agradecer o traballo, podes convidarme a un café:
+
+https://buymeacoffee.com/manuelduro
+
 ## Contidos
 
 1. [Requisitos](#requisitos)  
