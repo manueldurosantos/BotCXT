@@ -29,7 +29,7 @@ https://buymeacoffee.com/manuelduro
 ## Requisitos
 Para simplemente lanzar o executable dist/botcxt.exe (usar o programa como tal) necesitamos:
 - Navegador Mozilla Firefox
-- O ficheiro co listado dos centros ordenados por tempo/distancia. Pódese obter en https://centroseducativos.gal/ (hai un tutorial dispoñible na propia web)
+- O ficheiro co listado dos centros ordenados por tempo/distancia. Pódese obter en https://profesoradogalicia.com/colemaps/
 
 Se ademais queremos executar o código fonte ou desplegar o código necesitamos tamén:
 - Python 3.12 (recomendado)  
