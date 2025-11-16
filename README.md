@@ -69,7 +69,7 @@ Ou manualmente:
   - Ente do vernáculo
   - Vernáculo
   - Linguas → separadas por ; (exemplo: -- Sen indicar --;2-INGLÉS)
-  - Itinerancia → separada por , (exemplo: 0-Non,1-Si)
+  - Itinerancia → separada por ; (exemplo: 0-Non;1-Si)
   - N destinos con opcións completas → número de centros aos que se lles aplicarán todas as linguas. Os restantes só recibirán a primeira lingua indicada.
 3. Premer Iniciar proceso para introducir as solicitudes automaticamente.
 
