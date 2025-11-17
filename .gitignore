@@ -22,8 +22,7 @@ __pycache__/
 *.swo
 *.DS_Store
 
-# Executábeis de PyInstaller
-dist/
+# Ficheiros temporales de PyInstaller
 build/
 *.spec
 

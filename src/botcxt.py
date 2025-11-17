@@ -1,84 +1,69 @@
 import tkinter as tk
-from tkinter import filedialog, messagebox
-from selenium import webdriver
-from selenium.common import WebDriverException
-from selenium.webdriver.firefox.service import Service as FirefoxService
-from webdriver_manager.firefox import GeckoDriverManager
-from scraper import lanzar
+import webbrowser
+from forms.form_cxt import FormularioCXT
+from forms.form_cadp import FormularioCADP
 
-driver = None
-def seleccionar_archivo():
-    ruta = filedialog.askopenfilename()
-    txt_archivo.set(ruta)
+VERSION = "20251117.0"
+root = tk.Tk()
+root.title("Bot CXT/CADP")
+root.geometry("520x520")
+root.resizable(False, False)
 
-def abrir():
-    global driver
-    driver_started = False
-    if driver is not None:
-        try:
-            if driver.window_handles:
-                driver_started = True
-        except WebDriverException:
-            driver_started = False
+container = tk.Frame(root)
+container.pack(fill="both", expand=True)
 
-    if not driver_started:
-        driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
-        driver.get("https://www.edu.xunta.gal/cxt")
+pantallas = {}
 
-def executar():
-    global driver
-    try:
-        centros = open(txt_archivo.get()).read().split()
-        ente = combo_ente.get()
-        vernaculo = combo_vernaculo.get()
-        especialidade = combo_espec.get()
-        linguas = [lingua.strip() for lingua in entry_linguas.get().split(";")]
-        itinerancias = [itinerancia.strip() for itinerancia in entry_itinerancia.get().split(";")]
-        limite = int(entry_limite.get())
+# Pantalla de selección como clase
+class PantallaSeleccion:
+    def __init__(self, container, mostrar_cxt, mostrar_cadp):
+        self.frame = tk.Frame(container)
+        tk.Label(self.frame, text="Selecciona o trámite", font=("Arial", 16)).pack(pady=40)
+        frame_botons = tk.Frame(self.frame)
+        frame_botons.pack(pady=20)
 
-        lanzar(driver, centros, especialidade, ente, vernaculo, linguas, itinerancias, limite)
-        messagebox.showinfo("Proceso finalizado", "Completado con éxito")
-    except Exception as e:
-        messagebox.showerror("Erro", f"Houbo un erro no proceso: \n{e}")
+        tk.Button(frame_botons, text="CXT", font=("Arial", 20), width=10, height=3,
+                  command=mostrar_cxt).pack(side="left", padx=20)
+        tk.Button(frame_botons, text="CADP", font=("Arial", 20), width=10, height=3,
+                  command=mostrar_cadp).pack(side="right", padx=20)
+
+    def mostrar(self):
+        self.frame.pack(fill="both", expand=True)
+
+    def ocultar(self):
+        self.frame.pack_forget()
+
+# Crear formularios
+def mostrar_cxt():
+    pantallas["seleccion"].ocultar()
+    pantallas["cxt"].frame.pack(fill="both", expand=True)
+
+def mostrar_cadp():
+    pantallas["seleccion"].ocultar()
+    pantallas["cadp"].frame.pack(fill="both", expand=True)
+
+pantallas["cxt"] = FormularioCXT(container, lambda: pantallas["seleccion"].mostrar())
+pantallas["cxt"].crear_ui()
+pantallas["cadp"] = FormularioCADP(container, lambda: pantallas["seleccion"].mostrar())
+pantallas["cadp"].crear_ui()
+
+pantallas["seleccion"] = PantallaSeleccion(container, mostrar_cxt, mostrar_cadp)
+pantallas["seleccion"].mostrar()
+
+# --- FOOTER ---
+footer = tk.Frame(root)
+footer.pack(side="bottom", fill="x", pady=5, padx=10)
+
+label_centros = tk.Label(footer, text="Colemaps: ficheiro de centros", fg="blue", cursor="hand2", font=("Arial", 8, "underline"))
+label_centros.pack(side="left")
+label_centros.bind("<Button-1>", lambda e: webbrowser.open("https://profesoradogalicia.com/colemaps/"))
+
+label_version = tk.Label(footer, text=f"v{VERSION}", font=("Arial", 8), fg="gray")
+label_version.pack(side="right", padx=(0,5))
+label_github = tk.Label(footer, text="GitHub", font=("Arial", 8, "underline"), fg="blue", cursor="hand2")
+label_github.pack(side="right", padx=(0,5))
+label_github.bind("<Button-1>", lambda e: webbrowser.open("https://github.com/manueldurosantos/BotCXT"))
 
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    root.title("BotCXT")
-    root.geometry("450x400")
 
-    txt_archivo = tk.StringVar()
-
-    tk.Button(root, text="Abrir navegador", command=abrir).pack(pady=15)
-
-    tk.Label(root, text="Ficheiro de centros:").pack()
-    tk.Entry(root, textvariable=txt_archivo, width=50).pack()
-    tk.Button(root, text="Seleccionar ficheiro", command=seleccionar_archivo).pack()
-
-    combo_espec = tk.StringVar(value="590007-FÍSICA E QUÍMICA")
-    tk.Label(root, text="Especialidade:").pack()
-    tk.Entry(root, textvariable=combo_espec, width=50).pack()
-
-    combo_ente = tk.StringVar(value="11-Galicia")
-    tk.Label(root, text="Ente do vernáculo:").pack()
-    tk.Entry(root, textvariable=combo_ente, width=50).pack()
-
-    combo_vernaculo = tk.StringVar(value="0-SEN REQUISITO LINGÜISTICO")
-    tk.Label(root, text="Vernáculo:").pack()
-    tk.Entry(root, textvariable=combo_vernaculo, width=50).pack()
-
-    entry_linguas = tk.StringVar(value="-- Sen indicar --;2-INGLÉS")
-    tk.Label(root, text="Linguas (separadas por punto e coma):").pack()
-    tk.Entry(root, textvariable=entry_linguas, width=50).pack()
-
-    entry_itinerancia = tk.StringVar(value="0-Non")
-    tk.Label(root, text="Itinerancia (separadas por punto e coma):").pack()
-    tk.Entry(root, textvariable=entry_itinerancia, width=50).pack()
-
-    entry_limite = tk.StringVar(value="0")
-    tk.Label(root, text="N destinos con opcións completas (0 = todos):").pack()
-    tk.Entry(root, textvariable=entry_limite, width=50).pack()
-
-    tk.Button(root, text="Iniciar proceso", command=executar).pack(pady=5)
-
-    root.mainloop()
+root.mainloop()
