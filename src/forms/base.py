@@ -7,6 +7,7 @@ from selenium import webdriver
 
 driver = None  # webdriver compartido
 
+
 class FormularioBase:
     def __init__(self, container, volver_a_seleccion):
         self.container = container

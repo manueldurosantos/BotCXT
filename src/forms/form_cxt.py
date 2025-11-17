@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import messagebox
 from scraper import lanzar_cxt
 
+
 class FormularioCXT(FormularioBase):
     def crear_ui(self):
         self.boton_volver()

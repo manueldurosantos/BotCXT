@@ -3,6 +3,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
 def lanzar_cxt(driver, centros, especialidade, ente, vernaculo, linguas, itinerancias, limite):
     for i, centro in enumerate(centros):
         if limite > 0 and i >= limite:
@@ -26,6 +27,7 @@ def lanzar_cxt(driver, centros, especialidade, ente, vernaculo, linguas, itinera
                 WebDriverWait(driver, 15).until(
                     EC.invisibility_of_element_located((By.ID, "page-loader"))
                 )
+
 
 def lanzar_cadp(driver, centros, corpo, especialidade, linguas, afin, itinerancias, limite):
     for i, centro in enumerate(centros):

@@ -14,7 +14,7 @@ container.pack(fill="both", expand=True)
 
 pantallas = {}
 
-# Pantalla de selección como clase
+
 class PantallaSeleccion:
     def __init__(self, container, mostrar_cxt, mostrar_cadp):
         self.frame = tk.Frame(container)
@@ -33,7 +33,6 @@ class PantallaSeleccion:
     def ocultar(self):
         self.frame.pack_forget()
 
-# Crear formularios
 def mostrar_cxt():
     pantallas["seleccion"].ocultar()
     pantallas["cxt"].frame.pack(fill="both", expand=True)
@@ -63,7 +62,6 @@ label_version.pack(side="right", padx=(0,5))
 label_github = tk.Label(footer, text="GitHub", font=("Arial", 8, "underline"), fg="blue", cursor="hand2")
 label_github.pack(side="right", padx=(0,5))
 label_github.bind("<Button-1>", lambda e: webbrowser.open("https://github.com/manueldurosantos/BotCXT"))
-
 
 
 root.mainloop()
