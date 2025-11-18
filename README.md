@@ -1,7 +1,11 @@
 # BotCXT/CADP
 Bot desenvolvido en Python para automatizar o envío de solicitudes na páxina da Xunta de Galicia do Concurso Xeral de Traslados (CXT) e no Concurso de Adxudicación de Destinos Provisionais (CADP) utilizando Selenium e unha interface gráfica baseada en Tkinter.
 
-Pódese ver un titorial de uso no enlace https://youtu.be/pKWsqMe5GYo
+Pódese ver un titorial de uso da primeira versión do bot no enlace https://youtu.be/pKWsqMe5GYo
+
+Pódese ver un titorial de uso para o CXT 2025 de Pablo Rodríguez Vila no enlace https://www.youtube.com/watch?v=_to3aAMq-8M
+
+
 
 Máis información en https://profesoradogalicia.com/botcxt/
 
