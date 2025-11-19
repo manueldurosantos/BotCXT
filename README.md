@@ -6,7 +6,7 @@ Pódese ver un titorial de uso da primeira versión do bot (así como a explicac
 Pódese ver un titorial de uso para o CXT 2025 de Pablo Rodríguez Vila no enlace: https://youtu.be/_to3aAMq-8M
 
 
-Máis información en https://profesoradogalicia.com/botcxt/
+Máis información en: https://profesoradogalicia.com/botcxt/
 
 
 ## ☕ Apoia o proxecto
@@ -114,8 +114,9 @@ Neste exemplo, son 346. Dependendo do trámite teremos un límite de 400 (no CXT
 Supoñamos que quero poder optar a plazas bilingües en inglés. Teño que facer as peticións por duplicado (unha sen bilingüismo e outra en inglés). Como teño 346 centros, se poño un 0 no parámetro N o bot tratará de poñer 692 peticións, polo que superaremos o límite e a web da Xunta queixarase.
 
 Por tanto, para tratar de maximizar as opcións, nas primeiras peticións faremos que vaian por duplicado (non bilingüe e inglés) co parámetro N. Pódese plantexar así:
-
+```bash
 (límite - centros) / (repeticións - 1) = N
+```
 
 Que neste caso sería:
 ```bash
