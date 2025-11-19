@@ -3,8 +3,28 @@ import threading
 import psycopg2
 from dotenv import load_dotenv
 import os
+import sys
 
-load_dotenv()
+
+def load_env_embedded():
+    """Carga o .env desde o proxecto ou o exe."""
+    if getattr(sys, 'frozen', False):
+        # Estamos no exe
+        base_path = sys._MEIPASS
+        env_path = os.path.join(base_path, '.env')
+        if os.path.exists(env_path):
+            load_dotenv(env_path)
+    else:
+        # Código fonte: buscamos ao nivel do proxecto
+        base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
+        env_path = os.path.join(base_path, ".env")
+        if os.path.exists(env_path):
+            load_dotenv(env_path)
+        else:
+            print("⚠️ Non se atopou .env")
+
+
+load_env_embedded()
 
 USER = os.getenv("DB_USER")
 PASSWORD = os.getenv("DB_PASSWORD")
@@ -16,6 +36,7 @@ DBNAME = os.getenv("DB_NAME")
 class Logger:
     @staticmethod
     def inserir_log(tramite, centros, especialidade, linguas, itinerancias, status, duracion):
+        """Rexistro de estadísticas"""
         try:
             connection = psycopg2.connect(
                 user=USER,

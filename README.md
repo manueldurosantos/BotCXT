@@ -164,7 +164,7 @@ BotCXT-CADP
 ## Compilación do executable
 Para a compilación dun executable de Windows cun só ficheiro, executar no terminal:
 ```bash
-pyinstaller --noconsole --onefile --paths src src/botcxt.py
+pyinstaller --noconsole --onefile --paths src --add-data ".env;." src/botcxt.py
 ```
 Creará unha carpeta dist na que estará o executable botcxt.exe.
 Neste repositorio facilítase a última versión do executable lista para lanzar.

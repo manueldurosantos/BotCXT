@@ -1,10 +1,12 @@
 class Navigation:
     pantallas = {}
 
-    def rexistrar(self, nome, pantalla):
+    @staticmethod
+    def rexistrar(nome, pantalla):
         Navigation.pantallas[nome] = pantalla
 
-    def mostrar(self, nome):
+    @staticmethod
+    def mostrar(nome):
         for p in Navigation.pantallas.values():
             p.ocultar()
         Navigation.pantallas[nome].mostrar()

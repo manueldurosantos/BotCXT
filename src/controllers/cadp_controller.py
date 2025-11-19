@@ -17,13 +17,12 @@ class CADPController(BaseController):
 
     def executar(self):
         start_time = time.time()
-        driver = self.get_driver()
         centros = []
         status = ""
         try:
             centros = open(self.txt_archivo.get()).read().split()
             lanzar_cadp(
-                driver=driver,
+                driver=BaseController.driver,
                 centros=centros,
                 corpo=self.combo_corpo.get(),
                 especialidade=self.combo_espec.get(),

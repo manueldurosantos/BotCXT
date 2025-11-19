@@ -17,13 +17,12 @@ class CXTController(BaseController):
 
     def executar(self):
         start_time = time.time()
-        driver = self.get_driver()
         centros = []
         status = ""
         try:
             centros = open(self.txt_archivo.get()).read().split()
             lanzar_cxt(
-                driver=driver,
+                driver=BaseController.driver,
                 centros=centros,
                 especialidade=self.combo_espec.get(),
                 ente=self.combo_ente.get(),
