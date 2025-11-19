@@ -5,8 +5,8 @@ ENV/
 env/
 
 # Variables de entorno
-.env
-.sql_init
+*.env
+*.sql_init
 
 # Configuración de IDEs
 .idea/
