@@ -150,6 +150,7 @@ BotCXT-CADP
 │   │   └─ logger.py               # Funcións para rexistrar os logs
 │   │
 │   └─ views/
+│       ├─ base_view.py            # Vista base con funcionalidades comúns
 │       ├─ pantallas_seleccion.py  # Pantalla inicial
 │       ├─ form_cxt.py             # Vista do formulario CXT
 │       └─ form_cadp.py            # Vista do formulario CADP
