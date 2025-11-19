@@ -1,7 +1,9 @@
 import tkinter as tk
+from tkinter import messagebox
+import time
 from src.controllers.base_controller import BaseController
 from src.models.scraper import lanzar_cxt
-from tkinter import messagebox
+from src.models.logger import Logger
 
 
 class CXTController(BaseController):
@@ -14,7 +16,10 @@ class CXTController(BaseController):
         self.entry_itinerancia = tk.StringVar(value="0-Non")
 
     def executar(self):
+        start_time = time.time()
         driver = self.get_driver()
+        centros = []
+        status = ""
         try:
             centros = open(self.txt_archivo.get()).read().split()
             lanzar_cxt(
@@ -27,6 +32,20 @@ class CXTController(BaseController):
                 itinerancias=[i.strip() for i in self.entry_itinerancia.get().split(";")],
                 limite=int(self.entry_limite.get())
             )
-            messagebox.showinfo("Proceso finalizado", "Completado con éxito")
+            status = "Exitoso"
         except Exception as e:
-            messagebox.showerror("❌ Erro", f"Houbo un erro no proceso: \n{e}")
+            status = f"Erro: {e}"
+        finally:
+            Logger.inserir_log_async(
+                tramite="CXT",
+                centros=len(centros),
+                especialidade=self.combo_espec.get(),
+                linguas=self.entry_linguas.get(),
+                itinerancias=self.entry_itinerancia.get(),
+                status=status,
+                duracion=round(time.time() - start_time, 2)
+            )
+            if status == "Exitoso":
+                messagebox.showinfo("Proceso finalizado", "Completado con éxito")
+            else:
+                messagebox.showerror("❌ Erro", f"{status}")

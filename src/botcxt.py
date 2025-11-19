@@ -1,11 +1,12 @@
 import tkinter as tk
 import webbrowser
 from src.controllers.navigation import Navigation
-from views.pantalla_seleccion import PantallaSeleccion
-from views.form_cxt import FormularioCXT
-from views.form_cadp import FormularioCADP
+from src.views.pantalla_seleccion import PantallaSeleccion
+from src.views.form_cxt import FormularioCXT
+from src.views.form_cadp import FormularioCADP
+from src.config.version import VERSION
 
-VERSION = "20251118.0"
+
 root = tk.Tk()
 root.title("Bot CXT/CADP")
 root.geometry("520x520")
@@ -23,7 +24,6 @@ p_cadp = FormularioCADP(container)
 nav.rexistrar("seleccion", p_sel)
 nav.rexistrar("cxt", p_cxt)
 nav.rexistrar("cadp", p_cadp)
-print(Navigation.pantallas)
 nav.mostrar("seleccion")
 
 # FOOTER
