@@ -1,13 +1,14 @@
 import tkinter as tk
 from src.controllers.navigation import Navigation
 from src.controllers.cxt_controller import CXTController
+from src.views.base_view import BaseView
 
 
-class FormularioCXT:
+class FormularioCXT(BaseView):
     def __init__(self, container):
+        super().__init__(tk.Frame(container))
         self.nav = Navigation()
         self.controller = CXTController()
-        self.frame = tk.Frame(container)
 
         self.crear_ui()
 
@@ -46,10 +47,3 @@ class FormularioCXT:
 
         # Lanzar proceso
         tk.Button(self.frame, text="Iniciar proceso", command=self.controller.executar).pack(pady=15)
-
-
-    def mostrar(self):
-        self.frame.pack(fill="both", expand=True)
-
-    def ocultar(self):
-        self.frame.pack_forget()

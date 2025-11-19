@@ -1,11 +1,12 @@
 import tkinter as tk
 from src.controllers.navigation import Navigation
+from src.views.base_view import BaseView
 
 
-class PantallaSeleccion:
+class PantallaSeleccion(BaseView):
     def __init__(self, container):
+        super().__init__(tk.Frame(container))
         self.nav = Navigation()
-        self.frame = tk.Frame(container)
 
         tk.Label(self.frame, text="Selecciona o trámite", font=("Arial", 16)).pack(pady=40)
 
@@ -17,9 +18,3 @@ class PantallaSeleccion:
 
         tk.Button(buttons, text="CADP", font=("Arial", 20),
                   width=10, height=3, command=lambda: self.nav.mostrar("cadp")).pack(side="right", padx=20)
-
-    def mostrar(self):
-        self.frame.pack(fill="both", expand=True)
-
-    def ocultar(self):
-        self.frame.pack_forget()
