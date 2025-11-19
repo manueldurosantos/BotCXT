@@ -74,17 +74,17 @@ E despois executar:
 ## Uso
 1. Executar o ficheiro dist/botcxt.exe (doble click nel) ou executar directamente o código.
 2. Na interface gráfica:
-- Ao abrir o programa, seleccionar o trámite: CXT ou CADP.
-- Cada formulario dispón dun botón ⬅ Volver para regresar á pantalla de selección.
-- Premer Abrir navegador para iniciar Firefox. Iniciar a sesión e ir ao apartado de "Peticións" do CXT.
-- Seleccionar un ficheiro de centros (.txt) que conte os códigos dos centros, separados por espacios ou saltos de liña. Este ficheiro pódese obter en https://centroseducativos.gal/
-- No CXT configurar:
-  - Especialidade
-  - Ente do vernáculo
-  - Vernáculo
-  - Linguas → separadas por ; (exemplo: -- Sen indicar --;2-INGLÉS)
-  - Itinerancia → separada por ; (exemplo: 0-Non;1-Si)
-  - N destinos con opcións completas → número de centros aos que se lles aplicarán todas as linguas. Os restantes só recibirán a primeira lingua indicada.
+   - Ao abrir o programa, seleccionar o trámite: CXT ou CADP.
+   - Cada formulario dispón dun botón ⬅ Volver para regresar á pantalla de selección.
+   - Premer Abrir navegador para iniciar Firefox. Iniciar a sesión e ir ao apartado de "Peticións" do CXT.
+   - Seleccionar un ficheiro de centros (.txt) que conte os códigos dos centros, separados por espacios ou saltos de liña. Este ficheiro pódese obter en https://centroseducativos.gal/
+   - No CXT configurar:
+     - Especialidade
+     - Ente do vernáculo
+     - Vernáculo
+     - Linguas → separadas por ; (exemplo: -- Sen indicar --;2-INGLÉS)
+     - Itinerancia → separada por ; (exemplo: 0-Non;1-Si)
+     - N destinos con opcións completas → número de centros aos que se lles aplicarán todas as linguas. Os restantes só recibirán a primeira lingua indicada.
 3. Premer Iniciar proceso para introducir as solicitudes automaticamente.
 
 O programa mostrará unha mensaxe cando o proceso remate ou se produza un erro.
