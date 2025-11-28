@@ -47,4 +47,4 @@ class CXTController(BaseController):
             if status == "Exitoso":
                 messagebox.showinfo("Proceso finalizado", "Completado con éxito")
             else:
-                messagebox.showerror("❌ Erro", f"{status}")
+                messagebox.showerror("❌ Erro", f"Asegúrate de que tes aberta a pestana \"Peticións\" antes de executar.\n\n{status}")
