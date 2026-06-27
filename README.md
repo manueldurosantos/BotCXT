@@ -171,6 +171,7 @@ Neste repositorio facilítase a última versión do executable lista para lanzar
 
 ## Notas e boas prácticas
 - Asegurarse de que Mozilla Firefox está actualizado.
+- Se o bot se pecha inesperadamente, podería ser necesario desactivar o antivirus durante o seu uso. Non é un programa comercial nin ten ningún certificado, polo que Windows recoñéceo como un elemento potencialmente perigoso (que non o é, e por ese motivo aquí está o código para ser revisado).
 - Revisar que os nomes nos formularios da web coincidan exactamente (incluindo maiúsculas/minúsculas ou espacios) coas seleccións do código.
 - Para cambiar os valores por defecto no GUI, modificar manualmente os distintos parámetros.
 - O bot foi deseñado para uso persoal e responsable, polo que se insta a non facer spam de solicitudes á páxina da Xunta.
